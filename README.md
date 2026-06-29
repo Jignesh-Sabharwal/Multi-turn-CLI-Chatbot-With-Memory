@@ -30,6 +30,7 @@ Conversation memory is handled by `SQLChatMessageHistory`, which stores messages
 ├── chat.py           # Main CLI chatbot application
 ├── requirements.txt  # Python dependencies
 ├── Dockerfile        # Docker image definition
+├── compose.yaml      # Docker Compose configuration
 ├── .dockerignore     # Files excluded from Docker builds
 ├── .env.example      # Example environment variables
 └── README.md         # Project documentation
@@ -76,4 +77,20 @@ Use a named session in Docker:
 
 ```bash
 docker run --rm -it --env-file .env multiturncli python chat.py --session my-session
+```
+
+## Docker Compose
+
+You can also run the project with `compose.yaml`. Docker Compose builds the image, loads environment variables from `.env`, and starts the chatbot in interactive terminal mode.
+
+Run the chatbot:
+
+```bash
+docker compose run --rm chatbot
+```
+
+Run a named session:
+
+```bash
+docker compose run --rm chatbot python chat.py --session my-session
 ```

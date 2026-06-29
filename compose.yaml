@@ -1,0 +1,9 @@
+services:
+  chatbot:
+    build:
+      context: .
+    image: multiturncli
+    env_file:
+      - .env
+    stdin_open: true
+    tty: true
